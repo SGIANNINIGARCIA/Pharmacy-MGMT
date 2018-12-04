@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Doctors {
@@ -68,4 +69,29 @@ public class Doctors {
 		return getName() + " " + getAddress() + " " + getPhone() + " " + getSpecialization();
 	}
 	
+	public static void contactDoctor(ArrayList<Doctors> doctors, String name) {
+		Doctors toBePrinted = findDoctor(doctors, name);
+		if(toBePrinted != null) {
+		
+			System.out.println(findDoctor(doctors, name).getName());
+			System.out.println(findDoctor(doctors, name).getAddress());
+			System.out.println(findDoctor(doctors, name).getPhone());
+			System.out.println(findDoctor(doctors, name).getSpecialization());
+		}
+		else {System.out.println("Doctor could not be found in the system");}
+	}
+	
+	public static Doctors findDoctor(ArrayList<Doctors> doctors, String name){ 				//FINDS A DOCTOR 
+
+		for(int i = 0; i < doctors.size(); i++) {
+			if(doctors.get(i).getName().equals(name)) {
+				return doctors.get(i);
+			}
+		}
+		return null;
+
+	
+	}
+
 }
+

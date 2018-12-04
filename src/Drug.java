@@ -114,8 +114,30 @@ public class Drug {
 		return tobePrinted;
 	}
 	
-		//END OF SETTERS AND GETTERS//
-		///////////METHODS///////////	
-		//TODO-------Drug ingredients
+	public static Drug findDrug(ArrayList<Drug> drugs, String name){ 				//FINDS A DRUG 
+
+		for(int i = 0; i < drugs.size(); i++) {
+			if(drugs.get(i).getName().equals(name)) {
+				return drugs.get(i);
+			}
+		}
+		return null;
+
+	}
+	
+	public static void printDrugContradictions(String drug, ArrayList<Drug> drugs) {
+		Drug drugToBePrinted = findDrug(drugs, drug);
+		if(drugToBePrinted != null) {
+		
+			System.out.println("This drug: " + drugToBePrinted.getName() + " has a negative effect" +
+				" with the following drugs"	);
+			for(int i = 0; i < drugToBePrinted.getContradictions().size(); i++) {
+				System.out.print(drugToBePrinted.getContradictions().get(i) + " ");
+			}
+			System.out.println("");		
+		
+		}
+		else {System.out.println("Drug not found in the System");}
+	}
 	
 }

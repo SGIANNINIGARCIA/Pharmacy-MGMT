@@ -26,39 +26,6 @@ public class Processor {
 		prescriptions = readPrescriptions();
 
 	}	
-	
-	/*public static void readTransactions() throws IOException {             
-
-		String currentLine;	     
-		String[] fields;
-		Scanner in = new Scanner(new BufferedReader(new FileReader("hueso.txt")));	
-
-		while (in.hasNext()) {
-
-			currentLine = in.nextLine();	         
-			fields = currentLine.split(" ");  				
-            
-			
-			if (fields[0].equals("D")) { 
-				processDeposit(findAccount(a, Integer.parseInt(fields[1])), Double.parseDouble(fields[2]));   
-			}
-			if (fields[0].equals("W")) {  					
-				processWithdrawal(findAccount(a, Integer.parseInt(fields[1])), Double.parseDouble(fields[2]), fields[3] + " " + fields[4]);
-			}
-			if (fields[0].equals("C")) {  					
-				processClose(findAccount(a, Integer.parseInt(fields[1])), fields[2] + " " + fields[3], a);
-			}
-			if (fields[0].equals("T")) {  					
-				processTransfer(findAccount(a, Integer.parseInt(fields[1])), findAccount(a, Integer.parseInt(fields[2])), Double.parseDouble(fields[3]), fields[4] + " " + fields[5]);
-			}
-			
-
-		}  
-		in.close();
-		updateAccounts(a); //updates the account file to reflect transactions. 
-
-	}*/
-
 
 	public static ArrayList<Drug> readDrugs() throws IOException {   //Reads the drug.txt file      
 
@@ -99,7 +66,6 @@ public class Processor {
 
 		return drugs;
 	}
-	
 
 	public static ArrayList<Doctors> readDoctors() throws IOException {             
 
@@ -162,7 +128,7 @@ public class Processor {
 			fields = currentLine.split(" ");  				
 
 			temp = new Prescriptions (fields[0], fields[1]); 
-			temp.setDoctor(findDoctor(fields[2] + " " + fields[3]));
+			temp.setDoctor(Doctors.findDoctor(doctors, fields[2] + " " + fields[3]));
 
 			if(temp.getDoctor() == null) {     									                     //checks if the doctor exists 
 				System.out.println("Could not find doctor, please add it to our doctors data base");
@@ -176,11 +142,12 @@ public class Processor {
 			
 			for(int i = 0; i < fields.length; i++) {                         //SET DRUGLINEs 
 				if(fields[i].charAt(0) == ':') {
-					Druglines tempD = new Druglines(findDrug(fields[i].substring(1)), fields[i + 1], Integer.parseInt(fields[i + 2]),
+					Druglines tempD = new Druglines(Drug.findDrug(drugs, fields[i].substring(1)), fields[i + 1], Integer.parseInt(fields[i + 2]),
 							Integer.parseInt(fields[i + 3]));
 					drugLines.add(tempD);
 					
-					watchListUpdate(findDrug(fields[i].substring(1)), findDoctor(fields[2] + " " + fields[3]));									
+					watchListUpdate(Drug.findDrug(drugs, (fields[i].substring(1))), 
+							Doctors.findDoctor(doctors, fields[2] + " " + fields[3]));									
 						
 				}
 				temp.setDrugLines(drugLines);	
@@ -192,28 +159,6 @@ public class Processor {
 		in.close();
 
 		return prescriptions;
-	}
-
-	public static Doctors findDoctor(String name){ 				//FINDS A DOCTOR 
-
-		for(int i = 0; i < doctors.size(); i++) {
-			if(doctors.get(i).getName().equals(name)) {
-				return doctors.get(i);
-			}
-		}
-		return null;
-
-	}
-	
-	public static Drug findDrug(String name){ 				//FINDS A DRUG 
-
-		for(int i = 0; i < drugs.size(); i++) {
-			if(drugs.get(i).getName().equals(name)) {
-				return drugs.get(i);
-			}
-		}
-		return null;
-
 	}
 	
 	public static Patients findPatient(String name){ 				//FINDS A PATIENT
