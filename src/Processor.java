@@ -18,7 +18,7 @@ public class Processor {
 	static ArrayList<Prescriptions> prescriptions;
 
 
-	public static void processorInit() throws IOException {
+	public static void processorInit() throws IOException {          //Initializes all text files
 		drugs = readDrugs();    
 		doctors = readDoctors();		
 		patients = readPatients();
@@ -26,7 +26,7 @@ public class Processor {
 
 	}	
 
-	public static ArrayList<Drug> readDrugs() throws IOException {             
+	public static ArrayList<Drug> readDrugs() throws IOException {   //Reads the drug.txt file      
 
 		String currentLine;	     
 		ArrayList<Drug> drugs = new ArrayList<>();
@@ -212,6 +212,8 @@ public class Processor {
 	public static void main(String[] args) throws IOException {
 		processorInit();
 		System.out.println("I compiled!");
-		System.out.println(findDoctor("Sandro Giannini").getWatchlist().get(findDrug("Xanax"))); //WATCHLIST testing
+		for(int i = 0; i < drugs.size(); i++) {
+			System.out.println(drugs.get(i).printGeneralInfo());
+		}
 	}
 }

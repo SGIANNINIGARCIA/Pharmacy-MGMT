@@ -91,6 +91,11 @@ public class Drug {
 		this.isInWatchlist = isInWatchlist;
 	}
 	
+	public String printGeneralInfo() {
+		return getName() + " " + getChemicalName() + " " + getManufacturer() + " " + getDrugtype() 
+		        + " " + Boolean.toString(isInWatchlist());
+	}
+	
 		//END OF SETTERS AND GETTERS//
 		///////////METHODS///////////	
 		//TODO--------------------//
