@@ -107,10 +107,12 @@ public class Prescriptions {
 		 String id = fields[1];
 		
 			for(int i = 0; i < prescriptions.size(); i++) {
-				if(id.equalsIgnoreCase(prescriptions.get(i).getId())) {
-			         updatePrescription(fields, prescriptions.get(i));		
+				String toBeCompared = prescriptions.get(i).getId();
+				if(id.equalsIgnoreCase(toBeCompared) == true) {
+			         updatePrescription(fields, prescriptions.get(i));
+			         return;
 				}
-				else {
+			}
 					Prescriptions temp = new Prescriptions (fields[0], fields[1]); 
 					temp.setDoctor(Doctors.findDoctor(doctors, fields[3] + " " + fields[4]));
 					ArrayList<Druglines> drugLines = new ArrayList<>();
@@ -127,11 +129,11 @@ public class Prescriptions {
 					
 					for(int o = 0; 	o < fields.length; o++) {                         //SET DRUGLINEs 
 						if(fields[o].charAt(0) == ':') {
-							Druglines tempD = new Druglines(Drug.findDrug(drugs, fields[i].substring(1)), fields[i + 1], Integer.parseInt(fields[i + 2]),
-									Integer.parseInt(fields[i + 3]));
+							Druglines tempD = new Druglines(Drug.findDrug(drugs, fields[o].substring(1)), fields[o + 1], Integer.parseInt(fields[o + 2]),
+									Integer.parseInt(fields[o + 3]));
 							drugLines.add(tempD);
 							
-							Processor.watchListUpdate(Drug.findDrug(drugs, (fields[i].substring(1))), 
+							Processor.watchListUpdate(Drug.findDrug(drugs, (fields[o].substring(1))), 
 									Doctors.findDoctor(doctors, fields[3] + " " + fields[4]));									
 								
 						}
@@ -140,8 +142,8 @@ public class Prescriptions {
 					}
 					
 					prescriptions.add(temp);
-				}
-			}
+				
+			
 	}
 
 	public static void updatePrescription(String[] fields, Prescriptions prescription) {

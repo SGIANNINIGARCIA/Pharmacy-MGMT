@@ -190,7 +190,7 @@ public class Processor {
 				Drug.printDrugContradictions(fields[1], drugs);
 			}
 			if (fields[0].equals("CD")) {  					
-				Doctors.contactDoctor(doctors, fields[1]);
+				Doctors.contactDoctor(doctors, fields[1] + " " + fields[2]);
 			}
 			if (fields[0].equals("FP")) { 
 				Prescriptions.fillPrescription(doctors, patients, prescriptions, fields, drugs);
@@ -330,6 +330,15 @@ public class Processor {
 	
 	public static void main(String[] args) throws IOException {
 		processorInit();
+		
+		System.out.println("FOR TESTING");
+		System.out.println("TESTING UPDATE PRESCRIPTION:");
+		System.out.println(prescriptions.get(0).getDrugLines().get(0).getRefillsDone());
+		System.out.println(prescriptions.get(0).getDrugLines().get(0).getRefillsLeft());
+		readTransactions();
+		System.out.println(prescriptions.get(0).getDrugLines().get(0).getRefillsDone());
+		System.out.println(prescriptions.get(0).getDrugLines().get(0).getRefillsLeft());
+		
 		System.out.println("I compiled");
 		
 	}
