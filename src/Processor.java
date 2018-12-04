@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -223,6 +224,62 @@ public class Processor {
 		//TODO
 	}
 	
+	public static void commitDrugs() throws IOException {                      
+		 
+		PrintWriter writer = new PrintWriter("drug.txt", "UTF-8");
+
+		for(int i = 0; i < drugs.size(); i++) {
+			writer.println(drugs.get(i).printGeneralInfo() + drugs.get(i).printContradictions()
+				           + drugs.get(i).printConditions());
+		}
+
+		writer.close();
+
+	}
+	
+	public static void commitPatients() throws IOException {                      
+		 
+		PrintWriter writer = new PrintWriter("patient.txt", "UTF-8");
+
+		for(int i = 0; i < patients.size(); i++) {
+			writer.println(patients.get(i).printGeneralInfo());
+		}
+
+		writer.close();
+
+	}
+	
+	public static void commitDoctors() throws IOException {                      
+		 
+		PrintWriter writer = new PrintWriter("doctors.txt", "UTF-8");
+
+		for(int i = 0; i < doctors.size(); i++) {
+			writer.println(doctors.get(i).printGeneralInfo());
+		}
+
+		writer.close();
+
+	}
+	
+	public static void commitPrescriptions() throws IOException {                      
+		 
+		PrintWriter writer = new PrintWriter("prescription.txt", "UTF-8");
+
+		for(int i = 0; i < prescriptions.size(); i++) {
+			writer.println(prescriptions.get(i).printGeneralInfo() + prescriptions.get(i).printDrugLines());
+			
+		}
+
+		writer.close();
+
+	}
+	
+	public static void commitAll() throws IOException {
+		commitDrugs(); 
+		commitPatients();
+		commitDoctors();
+		commitPrescriptions();
+	}
 	
 	public static void main(String[] args) throws IOException {
 		processorInit();
