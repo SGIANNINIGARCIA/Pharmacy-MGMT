@@ -126,7 +126,6 @@ public class Processor {
 
 		String currentLine;	     
 		ArrayList<Prescriptions> prescriptions = new ArrayList<>();
-		ArrayList<Druglines> drugLines = new ArrayList<>();
 		String[] fields;
 		Prescriptions temp = null;
 		Scanner in = new Scanner(new BufferedReader(new FileReader(PRESCRIPTION_FILEPATH)));	
@@ -134,7 +133,8 @@ public class Processor {
 		while (in.hasNext()) {
 
 			currentLine = in.nextLine();	         
-			fields = currentLine.split(" ");  				
+			fields = currentLine.split(" "); 
+			ArrayList<Druglines> drugLines = new ArrayList<>();
 
 			temp = new Prescriptions (fields[0], fields[1]); 
 			temp.setDoctor(Doctors.findDoctor(doctors, fields[2] + " " + fields[3]));
