@@ -209,6 +209,21 @@ public class Processor {
 		
 	}
 	
+	public static void addPatient() {
+		Patients temp = new Patients();
+				//TODO
+		
+	}
+	
+	public static void addDrug() {
+		//TODO
+	}
+	
+	public static void addDoctor() {
+		//TODO
+	}
+	
+	
 	public static void main(String[] args) throws IOException {
 		processorInit();
 		System.out.println("I compiled!");
@@ -219,3 +234,4 @@ public class Processor {
 		}
 	}
 }
+
