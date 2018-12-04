@@ -43,7 +43,6 @@ public class Prescriptions {
 		return doctor;
 	}
 
-
 	public void setDoctor(Doctors doctor) {
 		this.doctor = doctor;
 	}
@@ -109,7 +108,7 @@ public class Prescriptions {
 		
 			for(int i = 0; i < prescriptions.size(); i++) {
 				if(id == prescriptions.get(i).getId()) {
-			     //TODO updatePrescription();		
+			         updatePrescription(fields, prescriptions.get(i));		
 				}
 				else {
 					Prescriptions temp = new Prescriptions (fields[0], fields[1]); 
@@ -144,4 +143,10 @@ public class Prescriptions {
 				}
 			}
 	}
+
+	public static void updatePrescription(String[] fields, Prescriptions prescription) {
+		
+		
+	}
+
 }
