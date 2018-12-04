@@ -141,12 +141,14 @@ public class Processor {
 
 			if(temp.getDoctor() == null) {     									                     //checks if the doctor exists 
 				System.out.println("Could not find doctor, please add it to our doctors data base");
+				continue;
 			}
 			
 			temp.setPatient(Patients.findPatient(patients, fields[4] + " " + fields[5]));
 
 			if(temp.getPatient() == null) {     									                     //checks if the patient exists 
 				System.out.println("Could not find patient, please add it to our patients data base");
+				continue;
 			}
 			
 			for(int i = 0; i < fields.length; i++) {                         //SET DRUGLINEs 
@@ -156,9 +158,11 @@ public class Processor {
 					drugLines.add(tempD);
 					
 					watchListUpdate(Drug.findDrug(drugs, (fields[i].substring(1))), 
-							Doctors.findDoctor(doctors, fields[2] + " " + fields[3]));									
-						
+							Doctors.findDoctor(doctors, fields[2] + " " + fields[3]));	
+					
+							
 				}
+
 				temp.setDrugLines(drugLines);	
 
 			}
@@ -332,13 +336,12 @@ public class Processor {
 		processorInit();
 		
 		System.out.println("FOR TESTING");
-		System.out.println("TESTING UPDATE PRESCRIPTION:");
-		System.out.println(prescriptions.get(0).getDrugLines().get(0).getRefillsDone());
-		System.out.println(prescriptions.get(0).getDrugLines().get(0).getRefillsLeft());
-		readTransactions();
-		System.out.println(prescriptions.get(0).getDrugLines().get(0).getRefillsDone());
-		System.out.println(prescriptions.get(0).getDrugLines().get(0).getRefillsLeft());
-		
+		System.out.println("TESTING FIND DOCTOR:");
+
+			for(int o = 0; o < prescriptions.get(0).getDrugLines().size(); o++) {
+				System.out.println(prescriptions.get(0).getDrugLines().get(o).getDrug().getName());
+			}
+	
 		System.out.println("I compiled");
 		
 	}

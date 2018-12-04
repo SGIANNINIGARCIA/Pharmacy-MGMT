@@ -80,7 +80,7 @@ public class Prescriptions {
 	public static void DrugDoctorRatio(ArrayList<Doctors> doctors, ArrayList<Prescriptions> prescriptions, Drug drug, int times) {
 		
 		
-		for(int i = 0; i < prescriptions.size(); i++) {
+		for(int i = 0; i < doctors.size(); i++) {
 			int nTimes = 0;
 			Doctors doctor = doctors.get(i);
 			
