@@ -26,6 +26,39 @@ public class Processor {
 		prescriptions = readPrescriptions();
 
 	}	
+	
+	/*public static void readTransactions() throws IOException {             
+
+		String currentLine;	     
+		String[] fields;
+		Scanner in = new Scanner(new BufferedReader(new FileReader("hueso.txt")));	
+
+		while (in.hasNext()) {
+
+			currentLine = in.nextLine();	         
+			fields = currentLine.split(" ");  				
+            
+			
+			if (fields[0].equals("D")) { 
+				processDeposit(findAccount(a, Integer.parseInt(fields[1])), Double.parseDouble(fields[2]));   
+			}
+			if (fields[0].equals("W")) {  					
+				processWithdrawal(findAccount(a, Integer.parseInt(fields[1])), Double.parseDouble(fields[2]), fields[3] + " " + fields[4]);
+			}
+			if (fields[0].equals("C")) {  					
+				processClose(findAccount(a, Integer.parseInt(fields[1])), fields[2] + " " + fields[3], a);
+			}
+			if (fields[0].equals("T")) {  					
+				processTransfer(findAccount(a, Integer.parseInt(fields[1])), findAccount(a, Integer.parseInt(fields[2])), Double.parseDouble(fields[3]), fields[4] + " " + fields[5]);
+			}
+			
+
+		}  
+		in.close();
+		updateAccounts(a); //updates the account file to reflect transactions. 
+
+	}*/
+
 
 	public static ArrayList<Drug> readDrugs() throws IOException {   //Reads the drug.txt file      
 
@@ -66,6 +99,7 @@ public class Processor {
 
 		return drugs;
 	}
+	
 
 	public static ArrayList<Doctors> readDoctors() throws IOException {             
 
