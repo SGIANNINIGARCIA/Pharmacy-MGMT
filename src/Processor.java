@@ -214,7 +214,8 @@ public class Processor {
 		System.out.println("I compiled!");
 		for(int i = 0; i < drugs.size(); i++) {
 			System.out.print(drugs.get(i).printGeneralInfo() + " ");
-			System.out.println(drugs.get(i).printContradictions());
+			System.out.print(drugs.get(i).printContradictions());
+			System.out.println(drugs.get(i).printConditions());
 		}
 	}
 }

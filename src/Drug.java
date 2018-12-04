@@ -102,12 +102,20 @@ public class Drug {
 		for(int i = 0; i < contradictions.size(); i++) {
 			contra = contra + "?" + contradictions.get(i) + " ";
 		}
-
 		return contra;
+	}
+	
+	public String printConditions() {
+		String tobePrinted = "";
+		
+		for(int i = 0; i < conditions.size(); i++) {
+			tobePrinted = tobePrinted + ":" + conditions.get(i) + " ";
+		}
+		return tobePrinted;
 	}
 	
 		//END OF SETTERS AND GETTERS//
 		///////////METHODS///////////	
-		//TODO--------------------//
+		//TODO-------
 	
 }
