@@ -12,6 +12,7 @@ public class Processor {
 	final static String DOCTOR_FILEPATH = "doctors.txt" ;
 	final static String PATIENT_FILEPATH = "patient.txt";
 	final static String PRESCRIPTION_FILEPATH = "prescription.txt";	
+	final static String TRANSACTION_FILEPATH = "transactions.txt";	
 
 	static ArrayList<Drug> drugs;
 	static ArrayList<Doctors> doctors;
@@ -169,6 +170,39 @@ public class Processor {
 		return prescriptions;
 	}
 	
+	public static void readTransactions() throws IOException {             
+
+		String currentLine;	     
+		String[] fields;
+		Scanner in = new Scanner(new BufferedReader(new FileReader(TRANSACTION_FILEPATH)));	
+
+		while (in.hasNext()) {
+
+			currentLine = in.nextLine();	         
+			fields = currentLine.split(" ");  				
+            
+			
+			if (fields[0].equals("FD")) { 
+			   Drug temp = Drug.findDrug(drugs, fields[1]);
+			   Prescriptions.DrugDoctorRatio(doctors, prescriptions, temp,Integer.parseInt(fields[2]));	   
+			}
+			if (fields[0].equals("FC")) {  					
+				Drug.printDrugContradictions(fields[1], drugs);
+			}
+			if (fields[0].equals("CD")) {  					
+				Doctors.contactDoctor(doctors, fields[1]);
+			}
+			if (fields[0].equals("FP")) { 
+				Prescriptions.fillPrescription(doctors, patients, prescriptions, fields, drugs);
+				
+			}
+			
+
+		}  
+		in.close(); 
+
+	}
+	
 	public static void watchListUpdate(Drug drug, Doctors doctor) {
 		
 		HashMap<Drug, Integer> watchlist = doctor.getWatchlist();  //lets see if it updates the watchlist
@@ -296,8 +330,7 @@ public class Processor {
 	
 	public static void main(String[] args) throws IOException {
 		processorInit();
-		//Prescriptions.DrugDoctorRatio(doctors, prescriptions, Drug.findDrug(drugs, "Adderall"), 2);
-		
+		System.out.println("I compiled");
 		
 	}
 }

@@ -77,7 +77,7 @@ public class Prescriptions {
 		return toBePrinted;		
 	}
 	
-/*	public static void DrugDoctorRatio(ArrayList<Doctors> doctors, ArrayList<Prescriptions> prescriptions, Drug drug, int times) {
+	public static void DrugDoctorRatio(ArrayList<Doctors> doctors, ArrayList<Prescriptions> prescriptions, Drug drug, int times) {
 		
 		
 		for(int i = 0; i < prescriptions.size(); i++) {
@@ -99,12 +99,12 @@ public class Prescriptions {
 				System.out.println("This doctor prescribed it " + nTimes + " time " + doctor.getName());
 			}
 		}
-	}*/
+	}
 	
 	public static void fillPrescription(ArrayList<Doctors> doctors, ArrayList<Patients> patients,
 			ArrayList<Prescriptions> prescriptions, String[] fields, ArrayList<Drug> drugs) {
 		
-		 String id = fields[0];
+		 String id = fields[1];
 		
 			for(int i = 0; i < prescriptions.size(); i++) {
 				if(id.equalsIgnoreCase(prescriptions.get(i).getId())) {
@@ -112,27 +112,27 @@ public class Prescriptions {
 				}
 				else {
 					Prescriptions temp = new Prescriptions (fields[0], fields[1]); 
-					temp.setDoctor(Doctors.findDoctor(doctors, fields[2] + " " + fields[3]));
+					temp.setDoctor(Doctors.findDoctor(doctors, fields[3] + " " + fields[4]));
 					ArrayList<Druglines> drugLines = new ArrayList<>();
 
 					if(temp.getDoctor() == null) {     									                     //checks if the doctor exists 
 						System.out.println("Could not find doctor, please add it to our doctors data base");
 					}
 					
-					temp.setPatient(Patients.findPatient(patients, fields[4] + " " + fields[5]));
+					temp.setPatient(Patients.findPatient(patients, fields[5] + " " + fields[6]));
 
 					if(temp.getPatient() == null) {     									                     //checks if the patient exists 
 						System.out.println("Could not find patient, please add it to our patients data base");
 					}
 					
-					for(int o = 0; i < fields.length; i++) {                         //SET DRUGLINEs 
+					for(int o = 0; 	o < fields.length; o++) {                         //SET DRUGLINEs 
 						if(fields[o].charAt(0) == ':') {
 							Druglines tempD = new Druglines(Drug.findDrug(drugs, fields[i].substring(1)), fields[i + 1], Integer.parseInt(fields[i + 2]),
 									Integer.parseInt(fields[i + 3]));
 							drugLines.add(tempD);
 							
 							Processor.watchListUpdate(Drug.findDrug(drugs, (fields[i].substring(1))), 
-									Doctors.findDoctor(doctors, fields[2] + " " + fields[3]));									
+									Doctors.findDoctor(doctors, fields[3] + " " + fields[4]));									
 								
 						}
 						temp.setDrugLines(drugLines);	
@@ -146,7 +146,7 @@ public class Prescriptions {
 
 	public static void updatePrescription(String[] fields, Prescriptions prescription) {
 
-		prescription.setDateIssued(fields[1]); //UPDATES THE DATE
+		prescription.setDateIssued(fields[2]); //UPDATES THE DATE
 		
 		for(int i = 0; i<prescription.getDrugLines().size(); i++) {  //UPDATES DRUGLINES
 			for(int o = 0; o < fields.length; o++) {                         
