@@ -46,6 +46,12 @@ public class Druglines {
 		this.refillsDone = refillsDone;
 	}
 	
+	public String printDrugLine() {
+		
+		return " :" + drug.getName() + " " + getDosage() + " " + String.valueOf(getRefillsLeft()) + " " 
+		+ String.valueOf(getRefillsDone());
+	}
+	
 	
 	
 	

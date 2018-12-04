@@ -63,6 +63,5 @@ public class Patients {
 		
 	//END OF SETTERS AND GETTERS//
 	///////////METHODS///////////	
-	//TODO--------------------//
-	//patients have prescription 
+	//TODO--------------------// 
 }

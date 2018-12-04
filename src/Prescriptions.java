@@ -20,7 +20,6 @@ public class Prescriptions {
 		
 	}
 
-
 	public String getId() {
 		return id;
 	}
@@ -40,30 +39,19 @@ public class Prescriptions {
 		this.dateIssued = dateIssued;
 	}
 
-	/**
-	 * @return the doctor
-	 */
 	public Doctors getDoctor() {
 		return doctor;
 	}
 
-	/**
-	 * @param doctor the doctor to set
-	 */
+
 	public void setDoctor(Doctors doctor) {
 		this.doctor = doctor;
 	}
 
-	/**
-	 * @return the drugLines
-	 */
 	public ArrayList<Druglines> getDrugLines() {
 		return drugLines;
 	}
 
-	/**
-	 * @param drugLines the drugLines to set
-	 */
 	public void setDrugLines(ArrayList<Druglines> drugLines) {
 		this.drugLines = drugLines;
 	}
@@ -74,6 +62,20 @@ public class Prescriptions {
 
 	public void setPatient(Patients patient) {
 		this.patient = patient;
+	}
+	
+	public String printGeneralInfo() {
+		return getId() + " " + getDateIssued() + " " + getDoctor().getName() + " " + getPatient().getName(); 
+		        
+	}
+	
+	public String printDrugLines() {
+		String toBePrinted = "";
+		for(int i = 0; i < drugLines.size(); i++) {
+			toBePrinted = toBePrinted + drugLines.get(i).printDrugLine();		
+		}
+		
+		return toBePrinted;		
 	}
 	
 	
