@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Processor {
@@ -143,6 +144,9 @@ public class Processor {
 					Druglines tempD = new Druglines(findDrug(fields[i].substring(1)), fields[i + 1], Integer.parseInt(fields[i + 2]),
 							Integer.parseInt(fields[i + 3]));
 					drugLines.add(tempD);
+					
+					watchListUpdate(findDrug(fields[i].substring(1)), findDoctor(fields[2] + " " + fields[3]));									
+						
 				}
 				temp.setDrugLines(drugLines);	
 
@@ -166,7 +170,6 @@ public class Processor {
 
 	}
 	
-	
 	public static Drug findDrug(String name){ 				//FINDS A DRUG 
 
 		for(int i = 0; i < drugs.size(); i++) {
@@ -189,9 +192,26 @@ public class Processor {
 
 	}
 	
+	public static void watchListUpdate(Drug drug, Doctors doctor) {
+		
+		HashMap<Drug, Integer> watchlist = doctor.getWatchlist();  //lets see if it updates the watchlist
+		
+		if(drug.isInWatchlist() == true && watchlist.containsKey(drug) == false) {
+			watchlist.put(drug, 0);
+		}
+		
+		if(drug.isInWatchlist() == true && watchlist.containsKey(drug) == true) {
+			int timesPrescribed = watchlist.get(drug) + 1;
+			watchlist.replace(drug, timesPrescribed);
+			
+		}
+		
+		
+	}
+	
 	public static void main(String[] args) throws IOException {
 		processorInit();
 		System.out.println("I compiled!");
-
+		System.out.println(findDoctor("Sandro Giannini").getWatchlist().get(findDrug("Xanax"))); //WATCHLIST testing
 	}
 }

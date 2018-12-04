@@ -1,3 +1,4 @@
+import java.util.HashMap;
 
 public class Doctors {
 	
@@ -5,14 +6,14 @@ public class Doctors {
 	private String address;
 	private String phone;
 	private String specialization;
-	private String[][] watchlist = new String[10][1];
+	private HashMap<Drug, Integer> watchList;  
 	
 	public Doctors() {
 		this.name = "";
 		this.address = "";
 		this.phone = "";
 		this.specialization = "";
-		this.watchlist = new String[10][1];
+		this.watchList = new HashMap<Drug, Integer>();
 	}
 	
 	public Doctors(String name, String address, String phone, String specialization, String[][] watchlist) {
@@ -20,7 +21,7 @@ public class Doctors {
 		this.address = address;
 		this.phone = phone;
 		this.specialization = specialization;
-		this.watchlist =  new String[10][1];
+		this.watchList = new HashMap<Drug, Integer>();
 	}
 	
 	public Doctors(String name, String address, String phone, String specialization) {
@@ -28,6 +29,8 @@ public class Doctors {
 		this.address = address;
 		this.phone = phone;
 		this.specialization = specialization;
+		this.watchList = new HashMap<Drug, Integer>();
+		
 	}
 	
 	public String getName() {
@@ -54,11 +57,11 @@ public class Doctors {
 	public void setSpecialization(String specialization) {
 		this.specialization = specialization;
 	}
-	public String[][] getWatchlist() {
-		return watchlist;
+	public HashMap<Drug, Integer> getWatchlist() {
+		return watchList;
 	}
-	public void setWatchlist(String[][] watchlist) {
-		this.watchlist = watchlist;
+	public void setWatchlist(HashMap<Drug, Integer> watchlist) {
+		this.watchList = watchlist;
 	} 
 	
 }

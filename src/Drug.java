@@ -17,8 +17,7 @@ public class Drug {
 		this.chemicalName = "";
 		Manufacturer = "";
 		this.drugtype = "";
-		//this.conditions = new String[];
-		//this.contradictions = ;
+		
 	}
 	
 	
