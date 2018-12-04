@@ -107,7 +107,7 @@ public class Prescriptions {
 		 String id = fields[0];
 		
 			for(int i = 0; i < prescriptions.size(); i++) {
-				if(id == prescriptions.get(i).getId()) {
+				if(id.equalsIgnoreCase(prescriptions.get(i).getId())) {
 			         updatePrescription(fields, prescriptions.get(i));		
 				}
 				else {
@@ -145,6 +145,20 @@ public class Prescriptions {
 	}
 
 	public static void updatePrescription(String[] fields, Prescriptions prescription) {
+
+		prescription.setDateIssued(fields[1]); //UPDATES THE DATE
+		
+		for(int i = 0; i<prescription.getDrugLines().size(); i++) {  //UPDATES DRUGLINES
+			for(int o = 0; o < fields.length; o++) {                         
+				if(fields[o].charAt(0) == ':') {
+					if(prescription.getDrugLines().get(i).getDrug().getName().equalsIgnoreCase(fields[o].substring(1))) {
+						prescription.getDrugLines().get(i).setRefillsDone(prescription.getDrugLines().get(i).getRefillsDone() + 1);
+						prescription.getDrugLines().get(i).setRefillsLeft(prescription.getDrugLines().get(i).getRefillsLeft() - 1);
+					}
+				}
+					
+				}
+		}
 		
 		
 	}
