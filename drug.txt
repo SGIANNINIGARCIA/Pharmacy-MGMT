@@ -1,4 +1,9 @@
-Xanax Alprazolam pfizer tranquilizer true :Nausea :Anxiety :Panic ?Advil
-Advil Ibuprofen pfizer pain-reliever false :Pain :Fever :Inflamation ?Xanax
-Adderall amphetamine teva stimulant true :ADHD :narcolepsy :cognitive-enhance ?Xanax ?Advil
-
+Xanax Alprazolam Pfizer Depressent true :Nausea :Anxiety :Panic ?Advil ?Vicodin #Sodium Benzoate #Silicon_Dioxide
+Advil Ibuprofen Pfizer Pain-reliever false :Pain :Fever :Inflamation ?Xanax ?Vicodin #Potassium_Salt
+Adderall Amphetamine Teva Stimulant true :ADHD :Narcolepsy :Cognitive-enhance ?Xanax ?Advil ?Vicodin #Amphetamine_Aspartate
+Sudafed Pseudophedrine Johnson&Johnson Decongestant false :Fever :Flu ?Xanax ?Vicodin #Magnesium_Stearate
+Vicodin Hydrocodone Caraco Pain-killer true :Pain ?Xanax ?Advil ?Sudafed ?Adderall ?Chlorpromazine #Microcrystalline_Cellulose
+Claritin Loratadine Cadila Allergies false :Allergies :Sleepiness ?Vicodin ?Xanax ?Sudafed ?Advil #Pseudoephedrine
+OxyContin Oxycodone Purdue Pain-killer true :Pain ?Vicodin ?Xanax ?Advil ?Adderall ?Chlorpromazine #BHT #Titanium_Dioxide
+Chlorpromazine Thorazine Antipsychotic true :Bipolar :Schizophrenia ?Xanax ?Vicodin ?OxyContin ?Adderall #Sodium_Benzoate
+Ibuprofen NSAID Perrigo Pain-reliever false :Pain :Fever ?Xanax ?Vicodin ?Oxycontin ?Chlorpromazine #Croscarmellose_Sodium

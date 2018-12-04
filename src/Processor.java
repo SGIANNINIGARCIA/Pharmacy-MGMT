@@ -42,6 +42,7 @@ public class Processor {
 			fields = currentLine.split(" "); 
 			ArrayList<String> conditions = new ArrayList<>();
 			ArrayList<String> contradictions = new ArrayList<>();
+			ArrayList<String> ingredients = new ArrayList<>();
 
 			temp = new Drug(fields[0], fields[1], fields[2], fields[3], Boolean.parseBoolean(fields[4]));
 
@@ -58,6 +59,13 @@ public class Processor {
 					contradictions.add(fields[i].substring(1));
 				}
 				temp.setContradictions(contradictions);	
+			}
+			
+			for(int i = 0; i < fields.length; i++) {                         //SET INGREDIENTS 
+				if(fields[i].charAt(0) == '#') {
+					ingredients.add(fields[i].substring(1));
+				}
+				temp.setIngredients(ingredients);	
 			}
 
 			drugs.add(temp);
@@ -134,7 +142,7 @@ public class Processor {
 				System.out.println("Could not find doctor, please add it to our doctors data base");
 			}
 			
-			temp.setPatient(findPatient(fields[4] + " " + fields[5]));
+			temp.setPatient(Patients.findPatient(patients, fields[4] + " " + fields[5]));
 
 			if(temp.getPatient() == null) {     									                     //checks if the patient exists 
 				System.out.println("Could not find patient, please add it to our patients data base");
@@ -159,17 +167,6 @@ public class Processor {
 		in.close();
 
 		return prescriptions;
-	}
-	
-	public static Patients findPatient(String name){ 				//FINDS A PATIENT
-
-		for(int i = 0; i < patients.size(); i++) {
-			if(patients.get(i).getName().equals(name)) {
-				return patients.get(i);
-			}
-		}
-		return null;
-
 	}
 	
 	public static void watchListUpdate(Drug drug, Doctors doctor) {
@@ -299,12 +296,8 @@ public class Processor {
 	
 	public static void main(String[] args) throws IOException {
 		processorInit();
-		System.out.println("I compiled!");
-		for(int i = 0; i < drugs.size(); i++) {
-			System.out.print(drugs.get(i).printGeneralInfo() + " ");
-			System.out.print(drugs.get(i).printContradictions());
-			System.out.println(drugs.get(i).printConditions());
-		}
+		//Prescriptions.DrugDoctorRatio(doctors, prescriptions, Drug.findDrug(drugs, "Adderall"), 2);
+		
 		
 	}
 }

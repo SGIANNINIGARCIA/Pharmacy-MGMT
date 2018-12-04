@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Patients {
 	
@@ -59,6 +60,17 @@ public class Patients {
 	
 	public String printGeneralInfo() {
 		return getName() + " " + getSSN() + " " + getAddress() + " " + getPhone() + " " + getInsuranceProvider();
+	}
+	
+	public static Patients findPatient(ArrayList<Patients> patients, String name){ 				//FINDS A PATIENT
+
+		for(int i = 0; i < patients.size(); i++) {
+			if(patients.get(i).getName().equals(name)) {
+				return patients.get(i);
+			}
+		}
+		return null;
+
 	}
 		
 	//END OF SETTERS AND GETTERS//

@@ -10,6 +10,8 @@ public class Drug {
 	private boolean isInWatchlist;
 	private ArrayList<String> conditions;
 	private ArrayList<String> contradictions;
+	private ArrayList<String> ingredients;
+	
 	
 	public Drug() {
 
@@ -91,6 +93,16 @@ public class Drug {
 		this.isInWatchlist = isInWatchlist;
 	}
 	
+	public ArrayList<String> getIngredients() {
+		return ingredients;
+	}
+
+
+	public void setIngredients(ArrayList<String> ingredients) {
+		this.ingredients = ingredients;
+	}
+
+
 	public String printGeneralInfo() {
 		return getName() + " " + getChemicalName() + " " + getManufacturer() + " " + getDrugtype() 
 		        + " " + Boolean.toString(isInWatchlist());
