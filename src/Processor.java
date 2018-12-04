@@ -334,15 +334,9 @@ public class Processor {
 	
 	public static void main(String[] args) throws IOException {
 		processorInit();
-		
-		System.out.println("FOR TESTING");
-		System.out.println("TESTING FIND DOCTOR:");
-
-			for(int o = 0; o < prescriptions.get(0).getDrugLines().size(); o++) {
-				System.out.println(prescriptions.get(0).getDrugLines().get(o).getDrug().getName());
-			}
 	
 		System.out.println("I compiled");
+		
 		
 	}
 }

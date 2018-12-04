@@ -95,9 +95,9 @@ public class Prescriptions {
 				}
 				
 			}
-			if(nTimes >= times) {
-				System.out.println("This doctor prescribed it " + nTimes + " time " + doctor.getName());
-			}
+
+			if(times <= times) {
+				System.out.println("This doctor prescribed it " + nTimes + " time " + doctor.getName()); }
 		}
 	}
 	

@@ -7,7 +7,7 @@ public class Druglines {
 	private int refillsDone;
 	
 	public Druglines(Drug drug, String dosage, int refillsLeft, int refillsDone) {
-		super();
+	
 		this.drug = drug;
 		this.dosage = dosage;
 		this.refillsLeft = refillsLeft;
