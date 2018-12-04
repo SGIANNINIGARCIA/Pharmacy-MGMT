@@ -211,17 +211,54 @@ public class Processor {
 	}
 	
 	public static void addPatient() {
+		Scanner scnr = new Scanner(System.in);
 		Patients temp = new Patients();
-				//TODO
 		
+		System.out.println("Please write name of patient");
+		temp.setName(scnr.next());
+		System.out.println("Please write Address of patient");
+		temp.setAddress(scnr.next());
+		System.out.println("Please write SSN of patient");
+		temp.setSSN(scnr.next());
+		System.out.println("Please write phone of patient");
+		temp.setPhone(scnr.next());
+		System.out.println("Please write Insurance provider of patient");
+		temp.setInsuranceProvider(scnr.next());
+		scnr.close();
+	
 	}
 	
 	public static void addDrug() {
-		//TODO
+		Scanner scnr = new Scanner(System.in);
+		Drug temp = new Drug();
+		
+		System.out.println("Please write name of Drug:\n");
+		temp.setName(scnr.next());
+		System.out.println("Please write Chemical Name of drug:\n");
+		temp.setChemicalName(scnr.next());
+		System.out.println("Please write Manufacturer of drug:\n");
+		temp.setManufacturer(scnr.next());
+		System.out.println("Please write the drug type of the drug:\n");
+		temp.setDrugtype(scnr.next());
+		System.out.println("Is this drug in the watchlist?\n");
+		temp.setInWatchlist(Boolean.parseBoolean(scnr.next()));
+		scnr.close();	
 	}
 	
 	public static void addDoctor() {
-		//TODO
+		Scanner scnr = new Scanner(System.in);
+		Doctors temp = new Doctors();
+		
+		System.out.println("Please write name of doctor");
+		temp.setName(scnr.next());
+		System.out.println("Please write Address of doctor");
+		temp.setAddress(scnr.next());
+		System.out.println("Please write specialization of doctor");
+		temp.setSpecialization(scnr.next());
+		System.out.println("Please write phone of patient");
+		temp.setPhone(scnr.next());
+		
+		scnr.close();
 	}
 	
 	public static void commitDrugs() throws IOException {                      
@@ -289,6 +326,7 @@ public class Processor {
 			System.out.print(drugs.get(i).printContradictions());
 			System.out.println(drugs.get(i).printConditions());
 		}
+		
 	}
 }
 
