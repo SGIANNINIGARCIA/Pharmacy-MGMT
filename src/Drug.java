@@ -116,6 +116,6 @@ public class Drug {
 	
 		//END OF SETTERS AND GETTERS//
 		///////////METHODS///////////	
-		//TODO-------
+		//TODO-------Drug ingredients
 	
 }

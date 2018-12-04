@@ -56,6 +56,10 @@ public class Patients {
 	public void setInsuranceProvider(String insuranceProvider) {
 		this.insuranceProvider = insuranceProvider;
 	}
+	
+	public String printGeneralInfo() {
+		return getName() + " " + getSSN() + " " + getAddress() + " " + getPhone() + " " + getInsuranceProvider();
+	}
 		
 	//END OF SETTERS AND GETTERS//
 	///////////METHODS///////////	

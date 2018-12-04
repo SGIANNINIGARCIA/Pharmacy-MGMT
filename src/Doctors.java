@@ -64,4 +64,8 @@ public class Doctors {
 		this.watchList = watchlist;
 	} 
 	
+	public String printGeneralInfo() {
+		return getName() + " " + getAddress() + " " + getPhone() + " " + getSpecialization();
+	}
+	
 }
