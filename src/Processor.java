@@ -213,7 +213,8 @@ public class Processor {
 		processorInit();
 		System.out.println("I compiled!");
 		for(int i = 0; i < drugs.size(); i++) {
-			System.out.println(drugs.get(i).printGeneralInfo());
+			System.out.print(drugs.get(i).printGeneralInfo() + " ");
+			System.out.println(drugs.get(i).printContradictions());
 		}
 	}
 }

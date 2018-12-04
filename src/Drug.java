@@ -96,6 +96,16 @@ public class Drug {
 		        + " " + Boolean.toString(isInWatchlist());
 	}
 	
+	public String printContradictions() {
+		String contra = "";
+		
+		for(int i = 0; i < contradictions.size(); i++) {
+			contra = contra + "?" + contradictions.get(i) + " ";
+		}
+
+		return contra;
+	}
+	
 		//END OF SETTERS AND GETTERS//
 		///////////METHODS///////////	
 		//TODO--------------------//
