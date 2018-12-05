@@ -334,6 +334,7 @@ public class Processor {
 	
 	public static void main(String[] args) throws IOException {
 		processorInit();
+		readTransactions();
 	
 		System.out.println("I compiled");
 		
