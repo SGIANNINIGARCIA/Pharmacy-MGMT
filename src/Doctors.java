@@ -77,6 +77,7 @@ public class Doctors {
 			System.out.println(findDoctor(doctors, name).getAddress());
 			System.out.println(findDoctor(doctors, name).getPhone());
 			System.out.println(findDoctor(doctors, name).getSpecialization());
+			System.out.println();
 		}
 		else {System.out.println("Doctor could not be found in the system");}
 	}

@@ -52,6 +52,14 @@ public class Druglines {
 		+ String.valueOf(getRefillsDone());
 	}
 	
+	public boolean checkRefills() {
+		if (this.getRefillsLeft() <= 0) {
+			System.out.println("This prescription has no refills left\n");
+			return false;
+		}
+		else return true;
+	}
+	
 	
 	
 	

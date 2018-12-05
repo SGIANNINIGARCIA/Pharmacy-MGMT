@@ -99,7 +99,7 @@ public class Prescriptions {
 			}
 
 			if(nTimes >= times) {
-				System.out.println("This doctor prescribed it " + nTimes + " time " + doctor.getName()); }
+				System.out.println("This doctor prescribed " + drug.getName() + " " + nTimes + " time " + doctor.getName() + "\n"); }
 		}
 	}
 	
@@ -121,7 +121,7 @@ public class Prescriptions {
 
 					if(temp.getDoctor() == null) {     									                     //checks if the doctor exists 
 						System.out.println("Could not find doctor, please add it to our doctors data base. " +
-					"Can't process new prescription");
+					"Can't process new prescription\n");
 						return;
 					}
 					
@@ -129,7 +129,7 @@ public class Prescriptions {
 
 					if(temp.getPatient() == null) {     									                     //checks if the patient exists 
 						System.out.println("Could not find patient, please add it to our patients data base. "
-								+ "Can't process new prescription.");
+								+ "Can't process new prescription.\n");
 						return;
 					}
 					
@@ -141,12 +141,12 @@ public class Prescriptions {
 							
 							Drug tempN = Drug.findDrug(drugs, (fields[o].substring(1)));  //Checks if drug is null
 							if(tempN == null) {
-								System.out.println("Cant find this drug, please add it in order to search the watchlist database.");
+								System.out.println("Cant find this drug, please add it in order to search the watchlist database.\n");
 								continue;
 							}
 							Doctors tempDoc = Doctors.findDoctor(doctors, fields[2] + " " + fields[3]); //checks if docto is null
 							if(tempDoc == null) {
-								System.out.println("Cant find this doctor, please add it in order to search the watchlist database.");
+								System.out.println("Cant find this doctor, please add it in order to search the watchlist database.\n");
 								continue;
 							}
 							
@@ -168,7 +168,8 @@ public class Prescriptions {
 		for(int i = 0; i<prescription.getDrugLines().size(); i++) {  //UPDATES DRUGLINES
 			for(int o = 0; o < fields.length; o++) {                         
 				if(fields[o].charAt(0) == ':') {
-					if(prescription.getDrugLines().get(i).getDrug().getName().equalsIgnoreCase(fields[o].substring(1))) {
+					if(prescription.getDrugLines().get(i).getDrug().getName().equalsIgnoreCase(fields[o].substring(1)) &&
+							prescription.getDrugLines().get(i).checkRefills() == true	) {
 						prescription.getDrugLines().get(i).setRefillsDone(prescription.getDrugLines().get(i).getRefillsDone() + 1);
 						prescription.getDrugLines().get(i).setRefillsLeft(prescription.getDrugLines().get(i).getRefillsLeft() - 1);
 					}

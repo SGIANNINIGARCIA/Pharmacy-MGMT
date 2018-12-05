@@ -20,6 +20,6 @@ FD Vicodin 1
 FP 4111 11/27/2018 Logan Bru Bridget James :Advil 500mg 10 0 :Adderall 20mg 5 0
 FP 1144 11/28/2018 Logan Bru Kevin Lord :Adderall :Claritin
 FC Vicodin
-FD Chloropromazine 2
+FD Chlorpromazine 2
 FP 1234 11/28/2018 Samantha Pickens John Matthews :Ibuprofen 100mg 5 0
 FP 9876 11/28/2018 Ally Beans Bridget James :Claritin 20mg 4 0

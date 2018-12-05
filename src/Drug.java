@@ -150,12 +150,12 @@ public class Drug {
 		Drug drugToBePrinted = findDrug(drugs, drug);
 		if(drugToBePrinted != null) {
 		
-			System.out.println("This drug: " + drugToBePrinted.getName() + " has a negative effect" +
-				" with the following drugs"	);
+			System.out.println("" + drugToBePrinted.getName() + " has a negative effect" +
+				" with the following drugs:"	);
 			for(int i = 0; i < drugToBePrinted.getContradictions().size(); i++) {
 				System.out.print(drugToBePrinted.getContradictions().get(i) + " ");
 			}
-			System.out.println("");		
+			System.out.println("\n");		
 		
 		}
 		else {System.out.println("Drug not found in the System");}
