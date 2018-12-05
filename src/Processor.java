@@ -1,3 +1,18 @@
+/**
+ * @authors Sandro Giannini Garcia, Tristin Johnson, Jay Jinarek
+ * Files: Doctors.java, Drug.java, Druglines.java, Patients.java, Prescriptions.java, Processor.java
+ * Class: CMS270
+ * 
+ * “On my honor, I have not given, nor received, nor witnessed any unauthorized assistance on this work.”
+ * 
+ * "I worked on this assignment alone, using only this and previous semester's course materials, and some other resources"
+ * 
+ * Description: This program reads from a set of file containing the information of the management of a pharmacy, and it manages the data with a set
+ * of commands.
+ *   
+ */
+
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -76,7 +91,7 @@ public class Processor {
 		return drugs;
 	}
 
-	public static ArrayList<Doctors> readDoctors() throws IOException {             
+	public static ArrayList<Doctors> readDoctors() throws IOException {  //Reads the doctor.txt file             
 
 		String currentLine;	     
 		ArrayList<Doctors> doctors = new ArrayList<>();
@@ -99,7 +114,7 @@ public class Processor {
 		return doctors;
 	}
 
-	public static ArrayList<Patients> readPatients() throws IOException {             
+	public static ArrayList<Patients> readPatients() throws IOException {             //Reads the patient.txt file  
 
 		String currentLine;	     
 		ArrayList<Patients> patients = new ArrayList<>();
@@ -122,7 +137,7 @@ public class Processor {
 		return patients;
 	}
 
-	public static ArrayList<Prescriptions> readPrescriptions() throws IOException {             
+	public static ArrayList<Prescriptions> readPrescriptions() throws IOException {             //Reads the prescription.txt file  
 
 		String currentLine;	     
 		ArrayList<Prescriptions> prescriptions = new ArrayList<>();
@@ -183,7 +198,7 @@ public class Processor {
 		return prescriptions;
 	}
 	
-	public static void readTransactions() throws IOException {             
+	public static void readTransactions() throws IOException {      ///Reads the transactions.txt file  and executes commands          
 
 		String currentLine;	     
 		String[] fields;
@@ -220,9 +235,9 @@ public class Processor {
 
 	}
 	
-	public static void watchListUpdate(Drug drug, Doctors doctor) {
+	public static void watchListUpdate(Drug drug, Doctors doctor) {    //It populates each doctor watchlist based on the prescription.txt
 		
-		HashMap<Drug, Integer> watchlist = doctor.getWatchlist();  //lets see if it updates the watchlist
+		HashMap<Drug, Integer> watchlist = doctor.getWatchlist();  
 		
 		if(drug.isInWatchlist() == true && watchlist.containsKey(drug) == false) {
 			watchlist.put(drug, 0);
@@ -289,7 +304,7 @@ public class Processor {
 
 	}
 	
-	public static void commitAll() throws IOException {
+	public static void commitAll() throws IOException {   //Writes to every txt. file (Updates the database)
 		commitDrugs(); 
 		commitPatients();
 		commitDoctors();

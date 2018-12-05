@@ -1,3 +1,16 @@
+/**
+ * @authors Sandro Giannini Garcia, Tristin Johnson, Jay Jinarek
+ * Files: Doctors.java, Drug.java, Druglines.java, Patients.java, Prescriptions.java, Processor.java
+ * Class: CMS270
+ * 
+ * “On my honor, I have not given, nor received, nor witnessed any unauthorized assistance on this work.”
+ * 
+ * "I worked on this assignment alone, using only this and previous semester's course materials, and some other resources"
+ * 
+ * Description: This program reads from a set of file containing the information of the management of a pharmacy, and it manages the data with a set
+ * of commands.
+ *   
+ */
 import java.util.ArrayList;
 
 

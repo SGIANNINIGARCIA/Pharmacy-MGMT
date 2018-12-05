@@ -1,3 +1,16 @@
+/**
+ * @authors Sandro Giannini Garcia, Tristin Johnson, Jay Jinarek
+ * Files: Doctors.java, Drug.java, Druglines.java, Patients.java, Prescriptions.java, Processor.java
+ * Class: CMS270
+ * 
+ * “On my honor, I have not given, nor received, nor witnessed any unauthorized assistance on this work.”
+ * 
+ * "I worked on this assignment alone, using only this and previous semester's course materials, and some other resources"
+ * 
+ * Description: This program reads from a set of file containing the information of the management of a pharmacy, and it manages the data with a set
+ * of commands.
+ *   
+ */
 import java.util.ArrayList;
 
 public class Prescriptions {
@@ -82,14 +95,14 @@ public class Prescriptions {
 	public static void DrugDoctorRatio(ArrayList<Doctors> doctors, ArrayList<Prescriptions> prescriptions, Drug drug, int times) {
 		
 		
-		for(int i = 0; i < doctors.size(); i++) {
+		for(int i = 0; i < doctors.size(); i++) {  //GETS DOCTOR A
 			int nTimes = 0;
 			Doctors doctor = doctors.get(i);
 			
-			for(int o = 0; o < prescriptions.size(); o++) {
+			for(int o = 0; o < prescriptions.size(); o++) { //GETS DOCTOR B
 				Doctors toBeCompared = prescriptions.get(o).getDoctor();
-				for(int p = 0; p < prescriptions.get(o).getDrugLines().size(); p++) {
-					if(prescriptions.get(o).getDrugLines().get(p).getDrug().getName().equalsIgnoreCase(drug.getName()) &&
+				for(int p = 0; p < prescriptions.get(o).getDrugLines().size(); p++) {  //FINDS A DESIRED DRUG AND DOCTOR PRESCRIBED
+					if(prescriptions.get(o).getDrugLines().get(p).getDrug().getName().equalsIgnoreCase(drug.getName()) &&  //IF DOCTORS AND DRUG MATCH ADD 1
 							doctor.equals(toBeCompared) == true	) {
 						 nTimes ++;
 					}
@@ -98,7 +111,7 @@ public class Prescriptions {
 				
 			}
 
-			if(nTimes >= times) {
+			if(nTimes >= times) {    //PRINTS THE MATCHED DOCTORS
 				System.out.println("This doctor prescribed " + drug.getName() + " " + nTimes + " time " + doctor.getName() + "\n"); }
 		}
 	}
