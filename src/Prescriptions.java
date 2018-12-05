@@ -139,8 +139,18 @@ public class Prescriptions {
 									Integer.parseInt(fields[o + 3]));
 							drugLines.add(tempD);
 							
-							Processor.watchListUpdate(Drug.findDrug(drugs, (fields[o].substring(1))), 
-									Doctors.findDoctor(doctors, fields[3] + " " + fields[4]));									
+							Drug tempN = Drug.findDrug(drugs, (fields[o].substring(1)));  //Checks if drug is null
+							if(tempN == null) {
+								System.out.println("Cant find this drug, please add it in order to search the watchlist database.");
+								continue;
+							}
+							Doctors tempDoc = Doctors.findDoctor(doctors, fields[2] + " " + fields[3]); //checks if docto is null
+							if(tempDoc == null) {
+								System.out.println("Cant find this doctor, please add it in order to search the watchlist database.");
+								continue;
+							}
+							
+							Processor.watchListUpdate(tempN, tempDoc);								
 								
 						}
 						temp.setDrugLines(drugLines);	
@@ -148,8 +158,7 @@ public class Prescriptions {
 					}
 					
 					prescriptions.add(temp);
-				
-			
+
 	}
 
 	public static void updatePrescription(String[] fields, Prescriptions prescription) {
