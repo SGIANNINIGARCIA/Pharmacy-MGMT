@@ -48,7 +48,7 @@ public class Processor {
 			temp = new Drug(fields[0], fields[1], fields[2], fields[3], Boolean.parseBoolean(fields[4]));
 
 			for(int i = 0; i < fields.length; i++) {                         //SET CONDITIONS 
-				if(fields[i].charAt(0) == ':') {
+				if(fields[i].charAt(0) == ':') {    //giving me an error
 					conditions.add(fields[i].substring(1));
 				}
 				temp.setConditions(conditions);	
@@ -280,8 +280,9 @@ public class Processor {
 		PrintWriter writer = new PrintWriter("drug.txt", "UTF-8");
 
 		for(int i = 0; i < drugs.size(); i++) {
-			writer.println(drugs.get(i).printGeneralInfo() + drugs.get(i).printContradictions()
-				           + drugs.get(i).printConditions());
+			writer.println(drugs.get(i).printGeneralInfo() +  drugs.get(i).printConditions() + " " +
+			drugs.get(i).printContradictions() + drugs.get(i).printIngredients()) ;
+				           
 		}
 
 		writer.close();
@@ -334,7 +335,8 @@ public class Processor {
 	
 	public static void main(String[] args) throws IOException {
 		processorInit();
-		readTransactions();
+		readTransactions(); //error in prescription writing
+		commitAll();
 	
 		System.out.println("I compiled");
 		

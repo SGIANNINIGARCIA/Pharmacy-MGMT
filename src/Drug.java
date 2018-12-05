@@ -117,11 +117,20 @@ public class Drug {
 		return contra;
 	}
 	
+	public String printIngredients() {
+	String contra = "";
+		
+		for(int i = 0; i < ingredients.size(); i++) {
+			contra = contra + "#" + ingredients.get(i) + " ";
+		}
+		return contra;
+	}
+	
 	public String printConditions() {
 		String tobePrinted = "";
 		
 		for(int i = 0; i < conditions.size(); i++) {
-			tobePrinted = tobePrinted + ":" + conditions.get(i) + " ";
+			tobePrinted = tobePrinted + " :" + conditions.get(i);
 		}
 		return tobePrinted;
 	}

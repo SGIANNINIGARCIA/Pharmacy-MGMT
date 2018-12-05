@@ -96,7 +96,7 @@ public class Prescriptions {
 				
 			}
 
-			if(times <= times) {
+			if(nTimes >= times) {
 				System.out.println("This doctor prescribed it " + nTimes + " time " + doctor.getName()); }
 		}
 	}
@@ -113,7 +113,7 @@ public class Prescriptions {
 			         return;
 				}
 			}
-					Prescriptions temp = new Prescriptions (fields[0], fields[1]); 
+					Prescriptions temp = new Prescriptions (fields[1], fields[2]); 
 					temp.setDoctor(Doctors.findDoctor(doctors, fields[3] + " " + fields[4]));
 					ArrayList<Druglines> drugLines = new ArrayList<>();
 

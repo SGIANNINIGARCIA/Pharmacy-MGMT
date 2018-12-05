@@ -1,6 +1,7 @@
-4345 11/23/2018 Sandro Giannini Tiffany Light :Advil 500mg 6 3 :Xanax 2mg 10 2
+4345 11/23/2018 Sandro Giannini Tiffany Light :Advil 500mg 1 8 :Xanax 2mg 5 7
 5441 11/24/2018 Parker Smith Travis Scott :Vicodin 10mg 5 2
 9081 11/25/2018 Logan Bru Drake Ovo :Adderall 30mg 10 4 :Advil 200mg 8 4
 4332 11/26/2018 Parker Smith Kevin Lord :Sudafed 50mg 4 2
 9113 11/27/2018 Ally Beans John Matthews :Chlorpromazine 10mg 4 3
 1144 11/28/2018 Logan Bru Kevin Lord :Adderall 20mg 5 2 :Claritin 50mg 4 1
+4311 11/29/2018 Parker Smith Kevin Lord :Xanax 50mg 6 0
