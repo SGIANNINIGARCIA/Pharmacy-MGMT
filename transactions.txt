@@ -1,5 +1,25 @@
 CD Sandro Giannini
+CD Logan Bru
 FC Xanax
-FP 4345 11/23/2018 Sandro Giannini Tiffany Light :Advil :Xanax 
+FC Advil
+FC Chlorpromazine
+FP 4345 11/23/2018 Sandro Giannini Tiffany Light :Advil :Xanax
+FP 4332 11/26/2018 Parker Smith Kevin Lord :Sudafed
 FD Xanax 1
-FP 4311 11/29/2018 Parker Smith Kevin Lord :Xanax 50mg 6 0
+FD Ibuprofen 3
+FP 1332 11/26/2018 Ally Beans John Matthews :Adderall 30mg 4 0
+FC OxyContin
+FP 1909 11/26/2018 Logan Bru Drake OVO :OxyContin 10mg 3 0
+CD Parker Smith
+FP 5441 11/27/2018 Parker Smith Travis Scott :Vicodin
+CD Samantha Pickens
+FP 3333 11/27/2018 Samantha Pickens Tiffany Light :Xanax 5mg 8 0
+FC Xanax
+FD Sudafed 3
+FD Vicodin 1
+FP 4111 11/27/2018 Logan Bru Bridget James :Advil 500mg 10 0 :Adderall 20mg 5 0
+FP 1144 11/28/2018 Logan Bru Kevin Lord :Adderall :Claritin
+FC Vicodin
+FD Chloropromazine 2
+FP 1234 11/28/2018 Samantha Pickens John Matthews :Ibuprofen 100mg 5 0
+FP 9876 11/28/2018 Ally Beans Bridget James :Claritin 20mg 4 0

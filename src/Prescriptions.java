@@ -64,6 +64,8 @@ public class Prescriptions {
 	}
 	
 	public String printGeneralInfo() {
+		
+		
 		return getId() + " " + getDateIssued() + " " + getDoctor().getName() + " " + getPatient().getName(); 
 		        
 	}
@@ -118,13 +120,17 @@ public class Prescriptions {
 					ArrayList<Druglines> drugLines = new ArrayList<>();
 
 					if(temp.getDoctor() == null) {     									                     //checks if the doctor exists 
-						System.out.println("Could not find doctor, please add it to our doctors data base");
+						System.out.println("Could not find doctor, please add it to our doctors data base. " +
+					"Can't process new prescription");
+						return;
 					}
 					
 					temp.setPatient(Patients.findPatient(patients, fields[5] + " " + fields[6]));
 
 					if(temp.getPatient() == null) {     									                     //checks if the patient exists 
-						System.out.println("Could not find patient, please add it to our patients data base");
+						System.out.println("Could not find patient, please add it to our patients data base. "
+								+ "Can't process new prescription.");
+						return;
 					}
 					
 					for(int o = 0; 	o < fields.length; o++) {                         //SET DRUGLINEs 
